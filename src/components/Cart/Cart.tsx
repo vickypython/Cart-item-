@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, } from "react"
 import classes from './cart.module.scss'
 import Quantifier from '../Quantifier'
 import { useLocation } from "react-router-dom"
-import TotalPrice from '../TotalPrice'
+import {TotalPrice} from '../TotalPrice'
 import { CartProps } from "../Products/Products"
 import useLocalStorageState from 'use-local-storage-state'
 //operation

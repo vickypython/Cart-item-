@@ -1,14 +1,14 @@
 
 import { FunctionComponent } from 'react'
 
-import { CurrencyFormatter } from '../CurrencyFormatter'
+import { CurrencyFormat } from '../CurrencyFormatter/CurrencyFormat'
 import classes from './total-price.module.scss'
 
 interface Props {
   amount: number
 }
-export const TotalPrice:FunctionComponent<Props> = ({amount}) => {
+export const TotalPrice: FunctionComponent<Props> = ({ amount }) => {
   return (
-    <div className={classes.totalPrice}>Total:{<CurrencyFormatter amount={amount}/>}</div>
+    <div className={classes.totalPrice}>Total:{<CurrencyFormat amount={amount} />}</div>
   )
 }
