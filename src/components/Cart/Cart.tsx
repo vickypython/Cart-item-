@@ -1,10 +1,10 @@
 import { FunctionComponent, useEffect, } from "react"
 import classes from './cart.module.scss'
-import Quantifier from '../Quantifier'
 import { useLocation } from "react-router-dom"
 import { TotalPrice } from '../TotalPrice'
 import { CartProps } from "../Products/Products"
 import useLocalStorageState from 'use-local-storage-state'
+import { Quantifier } from "../Quantifier/Quantifier"
 //operation
 export const Cart: FunctionComponent = () => {
     const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
@@ -13,13 +13,14 @@ export const Cart: FunctionComponent = () => {
         window.scrollTo(0, 0)
     }, [location])
     const handleRemoveProduct = (productId: number): void => {
-        setCart((prevCart:CartProps) => {
+        setCart((prevCart) => {
             const updatedCart = { ...prevCart }
             delete updatedCart[productId]
             return updatedCart
         })
+        }
         const handleUpdateQuality = (productId: number, operation: string): void => {
-            setCart((prevCart:CartProps) => {
+            setCart((prevCart) => {
                 const updatedCart = { ...prevCart }
                 if (updatedCart[productId]) {
                     if (operation === 'increase') {
@@ -32,10 +33,7 @@ export const Cart: FunctionComponent = () => {
             })
         }
 
-
-    }
-
-    const getProducts = ():Product[] => Object.values(cart || {})
+    const getProducts = ()=> Object.values(cart || {})
     const totalPrice = getProducts().reduce((acc, product) => acc + (product.price * product.quantity), 0)
 
     return (

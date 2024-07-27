@@ -1,12 +1,13 @@
 import { FunctionComponent } from "react"
-import classes from './header/module.scss'
+import classes from './header.module.scss'
 import { Link } from "react-router-dom";
 import { CartWidget } from "../CartWidget/CartWidget";
 import logo from '../../assets/react.svg' //need some change
 import { CartProps } from "../Products/Products";
+import useLocalStorageState from "use-local-storage-state";
 
 export const Header: FunctionComponent = () => {
- const [cart]=uselocalstorage<CartProps>('cart',{})
+ const [cart]=useLocalStorageState<CartProps>('cart',{})
   const productsCount:number= Object.keys(cart || {}).length
   
   return (
