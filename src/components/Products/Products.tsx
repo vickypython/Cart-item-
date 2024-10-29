@@ -56,6 +56,7 @@ export const Products: FunctionComponent = () => {
     const isInCart = (productId: number): boolean => Object.keys(cart || {}).includes(productId.toString())
 
 
+
 if (error) {
         return <h3 className={classes.error}>An error occured</h3>
     }
