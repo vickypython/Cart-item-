@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react"
 import { useNavigate } from "react-router-dom"
 import classes from './cart-widget.module.scss'
-import shoppingCart from '../../assets/react.svg'
+import shoppingCart from '../../assets/shoppingcart.svg'
 interface Props{
     productsCount:number
 }

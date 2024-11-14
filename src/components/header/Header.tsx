@@ -2,7 +2,7 @@ import { FunctionComponent } from "react"
 import classes from './header.module.scss'
 import { Link } from "react-router-dom";
 import { CartWidget } from "../CartWidget/CartWidget";
-import logo from '../../assets/react.svg' //need some change
+import logo from '/logo.svg' //need some change
 import { CartProps } from "../Products/Products";
 import useLocalStorageState from "use-local-storage-state";
 
