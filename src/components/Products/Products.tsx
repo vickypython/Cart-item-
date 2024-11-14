@@ -15,13 +15,13 @@ export interface CartProps {
     [productId: string]: Product
 }
 export const Products: FunctionComponent = () => {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [products, setProducts] = useState<Product[]>([])
     const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
     useEffect(() => {
         fetchProducts(API_URL)
-    })
+    },[])
     const fetchProducts = async (url: string) => {
         try {
             // setLoading(true)
@@ -29,7 +29,7 @@ export const Products: FunctionComponent = () => {
 
             if (response.ok) {
                 const data = await response.json()
-                console.log(data);
+                console.log("response Object",data);
                 
                 setProducts(data.products)
                 setLoading(false)
@@ -53,7 +53,16 @@ export const Products: FunctionComponent = () => {
         }))
 
     }
+    // console.log(addToCart({
+    //     id: 2,
+    //     title: "Apple ",
+    //     price: 30,
+    //     thumbnail: "Here is a good apple",
+    //     image: "",
+    //     quantity: 2
+    // }));
     const isInCart = (productId: number): boolean => Object.keys(cart || {}).includes(productId.toString())
+
 
 
 
