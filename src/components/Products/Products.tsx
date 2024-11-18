@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react"
 import useLocalStorageState from 'use-local-storage-state'
 import classes from './products.module.scss'
 import { Loader } from '../loader'
-const API_URL = 'https://dummyjson.com/products'
+
 export type Product = {
     id: number
     title: string
@@ -19,9 +19,10 @@ export const Products: FunctionComponent = () => {
     const [error, setError] = useState(false)
     const [products, setProducts] = useState<Product[]>([])
     const [cart, setCart] = useLocalStorageState<CartProps>('cart', {})
+    const API_URL = 'https://dummyjson.com/products'
     useEffect(() => {
         fetchProducts(API_URL)
-    },[])
+    },[API_URL])
     const fetchProducts = async (url: string) => {
         try {
             // setLoading(true)
